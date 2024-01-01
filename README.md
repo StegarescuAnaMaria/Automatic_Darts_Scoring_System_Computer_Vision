@@ -19,5 +19,5 @@ The system outputs a .txt file for each image of a target dashboard containing t
 6. cv2.moments is applied to the contour to get a dictionary of values which will be used next: (M00 – the area of the barrel; M01 – the sum of each y position / column of the pixel, multiplied by the pixel intensity; M10 - the sum of each x position / row of the pixel, multiplied by the pixel intensity etc).
 7. The center of each barrel is found by computing M10/M00 (x coord) and M01/M00 (y coord).
 8. The position of the tip of the dart (x, y coordinates) is calculated with the center of the barrel in mind, assuming that the distance between the center to the tip is 131 pixels (in approximation), Consider the following figure:
-   
+![alt text](https://github.com/StegarescuAnaMaria/Automatic_Darts_Scoring_System_Computer_Vision/blob/main/images/4.png)
 
