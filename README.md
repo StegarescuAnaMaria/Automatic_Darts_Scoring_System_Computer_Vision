@@ -18,6 +18,11 @@ The system outputs a .txt file for each image of a target dashboard containing t
 5. cv2.findContours is used for finding the contours of each barrel. It returns arrays of coordinates of points which form the contour.
 6. cv2.moments is applied to the contour to get a dictionary of values which will be used next: (M00 – the area of the barrel; M01 – the sum of each y position / column of the pixel, multiplied by the pixel intensity; M10 - the sum of each x position / row of the pixel, multiplied by the pixel intensity etc).
 7. The center of each barrel is found by computing M10/M00 (x coord) and M01/M00 (y coord).
-8. The position of the tip of the dart (x, y coordinates) is calculated with the center of the barrel in mind, assuming that the distance between the center to the tip is 131 pixels (in approximation), Consider the following figure:
+8. The position of the tip of the dart (x, y coordinates) is calculated with the center of the barrel in mind, assuming that the distance between the center to the tip is 131 pixels (in approximation). Consider the following figure:
 ![alt text](https://github.com/StegarescuAnaMaria/Automatic_Darts_Scoring_System_Computer_Vision/blob/main/images/4.png)
+"D" is the center of the barrel with (x1, y1) coordinates. The red arrow is the “direction” of the tip of the dart; (x, y) are the coordinates of the tip of the dart.
 
+x = x1 – 131 * cos (angle(A)) = x1 – 131 * AB/AC
+y = y1 – 131 * sin(angle(A)) = x1 – 131 * BC/AC
+
+Angle(A) is calculated with the help of cv2.moments: angle = 0.5 * arctan(2 * mu11/(mu20 – mu02))
