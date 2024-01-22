@@ -30,5 +30,5 @@ y = y1 – 131 * sin(angle(A)) = x1 – 131 * BC/AC
 Angle(A) is calculated with the help of cv2.moments: angle = 0.5 * arctan(2 * mu11/(mu20 – mu02)).
 9. The position of the dart is calculated by using a dictionary of hardcoded coordinates  of contours for each dart circle. The function which_zone(point) receives coordinates and returns the correct number of the circle. The function inside_zone receives a zone number (number of circle) and coordinates of darts, then returns True if the darts falls inside the circle, and False otherwise.
 
-#Task 2:
+# Task 2:
 Task 2 follows the same image processing steps as Task 1. The only exceptions are the more intricate dictionary of hardcoded coordinates for contours of each dart board zone (the 2nd darts board is more intricate), and step 5: (cv2.findContours) returns not just the contours for the barrels, but also for some lines which I will refer to as “noise”. I added a variable called “minArea” (=3000) in order to exclude the noise, which has a smaller area compared to the barrels.
